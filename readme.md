@@ -20,7 +20,7 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 6. [Activating Cheats In-Game](#activating-cheats-in-game)
 7. [Advanced Management](#advanced-management)
 8. [Troubleshooting](#troubleshooting)
-9. [Resources & Downloads](#resources--downloads)
+9. [Resources & Downloads](#resources-and-downloads)
 
 ---
 
