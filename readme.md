@@ -123,8 +123,10 @@ This is particularly useful if you're developing your own cheats or want to main
 ## 🔗 Resources
 
 - 📦 CWCheat Database: https://github.com/Saramagrean/CWCheat-Database-Plus-/tree/master  
-- 💬 PPSSPP Cheats Forum: https://forums.ppsspp.org/showthread.php?tid=3590
-- 🛠️ CWCheat Database Editor: **Original** https://github.com/DragonNeos/cwcheatdb - **Updated Release available** [HERE]()
+- 💬 PPSSPP Cheats Forum:
+   - https://forums.ppsspp.org/showthread.php?tid=3590
+   - https://forums.ppsspp.org/showthread.php?tid=11961
+- 🛠️ CWCheat Database Editor: **Original** https://github.com/DragonNeos/cwcheatdb - **Updated Release available** [HERE](https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases)
 
 ---
 
@@ -132,6 +134,7 @@ This is particularly useful if you're developing your own cheats or want to main
 
 This guide includes references and assets from:
 
+- **Pasky13**, the developer of the [CWCheat Database Editor V2.](https://www.brewology.com/downloads/download.php?id=7176&mcid=1)
 - The open-source **CWCheat Database Plus+** by [Saramagrean](https://github.com/Saramagrean)
 - **CWCheat Database Editor** developed by [DragonNeos](https://github.com/DragonNeos/cwcheatdb)
 - Example discussions and cheat sharing from the [PPSSPP official forums](https://forums.ppsspp.org)
