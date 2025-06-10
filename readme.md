@@ -23,9 +23,13 @@ This guide explains how to enable and use cheats in the **PPSSPP** emulator, inc
 ## 📂 Step 2: Locate the Cheats Folder
 
 1. Open your **PPSSPP** directory.
-2. Locate or create the folder named `cheats`.
-   - Example path: `PPSSPP/cheats/`
-   - `C:/Users/-/Documents/PPSSPP/PSP/Cheats`
+2. Locate or create the folder named `cheats`
+   
+   **Common Locations:**
+- **Windows:** `Documents/PPSSPP/PSP/Cheats/`
+- **Android:** `/storage/emulated/0/PSP/Cheats/`
+- **macOS:** `~/Library/Application Support/PPSSPP/PSP/Cheats/`
+- **Linux:** `~/.config/ppsspp/PSP/Cheats/`
 
 ---
 
@@ -127,6 +131,7 @@ This is particularly useful if you're developing your own cheats or want to main
    - https://forums.ppsspp.org/showthread.php?tid=3590
    - https://forums.ppsspp.org/showthread.php?tid=11961
 - 🛠️ CWCheat Database Editor: **Original** https://github.com/DragonNeos/cwcheatdb - **Updated Release available** [HERE](https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases)
+- 🎮 PPSSPP repo: https://github.com/hrydgard/ppsspp
 
 ---
 
