@@ -12,15 +12,15 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 
 ## 📋 Table of Contents
 
-1. [Prerequisites](##prerequisites)
-2. [Enabling Cheats](##enabling-cheats)
-3. [Locating Your Cheats Directory](##locating-your-cheats-directory)
-4. [Method 1: Using Cheat Database (Recommended)](##method-1-using-cheat-database-recommended)
-5. [Method 2: Manual Cheat Entry](##method-2-manual-cheat-entry)
-6. [Activating Cheats In-Game](##activating-cheats-in-game)
-7. [Advanced Management](##advanced-management)
-8. [Troubleshooting](##troubleshooting)
-9. [Resources & Downloads](##resources--downloads)
+1. [Prerequisites](#prerequisites)
+2. [Enabling Cheats](#enabling-cheats)
+3. [Locating Your Cheats Directory](#locating-your-cheats-directory)
+4. [Method 1: Using Cheat Database (Recommended)](#method-1-using-cheat-database-recommended)
+5. [Method 2: Manual Cheat Entry](#method-2-manual-cheat-entry)
+6. [Activating Cheats In-Game](#activating-cheats-in-game)
+7. [Advanced Management](#advanced-management)
+8. [Troubleshooting](#troubleshooting)
+9. [Resources & Downloads](#resources--downloads)
 
 ---
 
