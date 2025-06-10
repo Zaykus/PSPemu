@@ -270,7 +270,7 @@ This guide incorporates work and resources from:
 
 - **[Saramagrean](https://github.com/Saramagrean)** - CWCheat Database Plus+ maintenance
 - **[DragonNeos](https://github.com/DragonNeos/cwcheatdb)** - CWCheat Database Editor
-- **[Pasky13](https://www.brewology.com/)** - Original CWCheat Database Editor V2
+- **[Pasky13](https://tasvideos.org/Users/Profile/Pasky13)** - Original CWCheat Database Editor V2
 - **PPSSPP Development Team** - Emulator development
 - **PPSSPP Community** - Cheat sharing and support
 
