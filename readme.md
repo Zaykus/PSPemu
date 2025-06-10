@@ -89,7 +89,7 @@ There is now an easier way to use cheats:
 You can download the required files from the official or community-maintained sources below:
 
 - 📥 **Latest Resource from This Repository**  
-  Download the latest version of the `cheat.db` or other resources directly from the [Releases](https://github.com/your-username/your-repo-name/releases) section of this repository.
+  Download the latest version of the `cheat.db` or other resources directly from the [Releases](https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases) section of this repository.
 
 - 📦 **Original CWCheat Database**  
   Maintained by **Saramagrean**, this is the most comprehensive and up-to-date CWCheat database available:  
