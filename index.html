@@ -3,67 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPSSPP Emulator Cheats</title>
+    <title>PPSSPP Emulator Cheats - Guide & Downloads</title>
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #24292e;
+            --card-bg-color: #f6f8fa;
+            --border-color: #d1d5da;
+            --link-color: #0366d6;
+            --code-bg-color: #eef0f2;
+            --header-color: #000000;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --text-color: #c9d1d9;
+                --card-bg-color: #161b22;
+                --border-color: #30363d;
+                --link-color: #58a6ff;
+                --code-bg-color: #2c313a;
+                --header-color: #ffffff;
+            }
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f6f8fa;
-            color: #24292e;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #d1d5da;
-            border-radius: 6px;
-            padding: 20px;
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
         }
-        h1 {
-            text-align: center;
-            border-bottom: 1px solid #eaecef;
+        h1, h2 {
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            color: var(--header-color);
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .section {
+            margin-bottom: 30px;
+        }
+        code {
+            background-color: var(--code-bg-color);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        ol {
+            padding-left: 20px;
         }
         li {
-            padding: 8px 12px;
-            border-bottom: 1px solid #eaecef;
-        }
-        li:last-child {
-            border-bottom: none;
+            margin-bottom: 12px;
         }
         a {
+            color: var(--link-color);
             text-decoration: none;
-            color: #0366d6;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
         }
+        .download-list li {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .download-list li:hover {
+            background-color: var(--code-bg-color);
+        }
+        .download-btn {
+            background-color: var(--link-color);
+            color: var(--bg-color);
+            padding: 8px 16px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
         .footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 0.9em;
-            color: #586069;
+            color: #8b949e;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>PPSSPP Emulator Cheats</h1>
-        <p>This is a collection of cheat files for the PPSSPP emulator. Click on a game to view the raw cheat file.</p>
-        <ul>
-            <li><a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULUS10015.ini" target="_blank">ATV Offroad Fury - Blazin' Trails</a></li>
-            <li><a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULES00174.ini" target="_blank">Burnout Legends</a></li>
-            <li><a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULUS10068.ini" target="_blank">Coded Arms</a></li>
-        </ul>
+        <h1>PPSSPP Cheats Guide & Downloads</h1>
+        
+        <div class="section">
+            <h2>How to Use These Cheats</h2>
+            <p>Follow these steps carefully to enable cheats in the PPSSPP emulator.</p>
+            <ol>
+                <li><strong>Enable Cheats in PPSSPP:</strong> Open the emulator, go to <code>Settings > System</code>, and ensure the <strong>"Enable cheats"</strong> option is checked.</li>
+                <li><strong>Download a Cheat File:</strong> Scroll down to the list below and click the "Download" button for the game you want.</li>
+                <li><strong>Locate the 'Cheats' Folder:</strong> Find your PPSSPP installation folder, then navigate into the <code>PSP/Cheats</code> directory.</li>
+                <li><strong>Place the Cheat File:</strong> Move the downloaded <code>.ini</code> file into this <code>Cheats</code> folder.</li>
+                <li><strong>Rename the File (Crucial Step):</strong> The cheat file's name **MUST** match your game's ID. To find the ID, launch the game in PPSSPP. The ID is displayed in the window title (e.g., ULUS-10068). Rename the downloaded file to match this ID exactly (e.g., <code>ULUS10068.ini</code>).</li>
+                <li><strong>Activate Cheats in Game:</strong> With the game running, open the PPSSPP menu (often the `Esc` key). Go to the "Cheats" option, import the cheat file, and check the boxes for the cheats you wish to activate.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Download Cheat Files</h2>
+            <ul class="download-list" style="list-style-type: none; padding: 0;">
+                <li>
+                    <span>ATV Offroad Fury - Blazin' Trails</span>
+                    <a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULUS10015.ini" class="download-btn" download="ULUS10015.ini">Download</a>
+                </li>
+                <li>
+                    <span>Burnout Legends</span>
+                    <a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULES00174.ini" class="download-btn" download="ULES00174.ini">Download</a>
+                </li>
+                <li>
+                    <span>Coded Arms</span>
+                    <a href="https://raw.githubusercontent.com/Zaykus/Cheats-PPSSPP-Emulator/main/ULUS10068.ini" class="download-btn" download="ULUS10068.ini">Download</a>
+                </li>
+            </ul>
+        </div>
+        
         <div class="footer">
-            <p>Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+            <p>View the project on <a href="https://github.com/Zaykus/Cheats-PPSSPP-Emulator" target="_blank">GitHub</a></p>
         </div>
     </div>
 </body>
