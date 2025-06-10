@@ -119,7 +119,7 @@ Choose one of these trusted sources:
 
 ## ✏️ Method 2: Manual Cheat Entry
 
-[Using CWCheat Database Editor](#advanced-management)
+[Using CWCheat Database Editor](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#using-cwcheat-database-editor)
 
 For custom cheats or when database doesn't have your game.
 
