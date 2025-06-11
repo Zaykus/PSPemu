@@ -9,7 +9,7 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 **TL;DR:** Enable cheats in PPSSPP settings, download a `cheat.db` file, place it in your cheats folder, then import cheats directly from the in-game menu.
 
 ---
-
+5sda
 ## 📋 Table of Contents  
 
 1. [Prerequisites](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-prerequisites)  
@@ -17,10 +17,12 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 3. [Locating Your Cheats Directory](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-locating-your-cheats-directory)  
 4. [Method 1: Using Cheat Database (Recommended)](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-method-1-using-cheat-database-recommended)  
 5. [Method 2: Manual Cheat Entry](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#%EF%B8%8F-method-2-manual-cheat-entry)  
-6. [Activating Cheats In-Game](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-activating-cheats-in-game)  
-7. [Advanced Management](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#%EF%B8%8F-advanced-management)  
-8. [Troubleshooting](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-troubleshooting)  
-9. [Resources & Downloads](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-resources--downloads)
+6. [Game Patches & Enhancements]([#-game-patches--enhancements](https://github.com/Zaykus/PSPemu/edit/main/readme.md#-game-patches--enhancements))  
+7. [Activating Cheats In-Game](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-activating-cheats-in-game)  
+8. [Advanced Management](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#%EF%B8%8F-advanced-management)  
+9. [Troubleshooting](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-troubleshooting)  
+10. [Resources & Downloads](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-resources--downloads)
+
 
 ---
 
@@ -39,14 +41,10 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 1. Launch **PPSSPP**
 2. Navigate to `Settings` → `System`
 3. Scroll to the **Cheats** section
-4. Enable the following options:
+4. Enable the following option:
    - ✅ **Enable cheats**
-   - ✅ **Enable plugins** (recommended for advanced features)
-> Example screenshot:
-
-![Enable Cheats in System Settings](/screenshot/1.png)
-
-> **Important:** Both options must be enabled for cheats to function properly.
+   
+> **Important:** Only "Enable cheats" is required for basic cheat functionality. Plugins are NOT needed for CWCheat.
 
 ---
 
@@ -71,9 +69,6 @@ If you can't locate the folder:
    PSP Memory Stick
    └── Memory Stick folder "or" Show Memory Stick folder
    ```
-> Example screenshot:
-![Show Memory Stick folder](/screenshot/5.png)
-   
 4. The cheats folder will be at `[System Path]/PSP/Cheats/`
 
 **Note:** If the `cheats` folder doesn't exist, create it manually.
@@ -109,8 +104,6 @@ Choose one of these trusted sources:
 2. Open the pause menu (typically `Esc` or back button)
 3. Select `Cheats`
 4. Click `Import from cheat.db`
-> Example screenshot:
-![Cheat Menu in Game](/screenshot/3.png)
 6. PPSSPP automatically finds and imports relevant cheats
 7. Toggle desired cheats on/off
 8. Resume gameplay
@@ -118,8 +111,6 @@ Choose one of these trusted sources:
 ---
 
 ## ✏️ Method 2: Manual Cheat Entry
-
-[Using CWCheat Database Editor](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#using-cwcheat-database-editor)
 
 For custom cheats or when database doesn't have your game.
 
@@ -139,18 +130,55 @@ For custom cheats or when database doesn't have your game.
 ```ini
 _S ULUS-10202
 _G God of War - Chains of Olympus [USA]
-_C0 Infinite Health
+_C0 Infinite Health  ; _C0 = disabled
+_C1 Max Orbs         ; _C1 = enabled
 _L 0x200xxxxx 0x12345678
-_C0 Max Orbs
-_L 0x200xxxxx 0x0098967F
 ```
 
-### CWCheat Format Explanation
+### Cheat State Indicators
+- `_C0`: Cheat disabled
+- `_C1`: Cheat enabled
 
-- `_S`: Game ID identifier
-- `_G`: Game title (optional, for reference)
-- `_C0`: Cheat name/description
-- `_L`: Cheat code line (address and value)
+### Version-Specific Notes
+For games with multiple releases (e.g., GTA Liberty City Stories):
+1. Verify exact game version in `Game Settings`
+2. Match cheat codes to your specific ID (ULUS/ULES/ULJM + exact number)
+3. Regional versions require different codes
+
+---
+
+## 🧩 Game Patches & Enhancements
+
+Apply code patches for game improvements:
+
+### 60 FPS Patches
+```ini
+_C0 60FPS Hack [Example]
+_L 0xE0020000 0x0024F2C0
+_L 0x2024F2C0 0x3C023F00
+```
+[Source Repository](https://github.com/TAbdiukov/PPSSPP-patches)
+
+### Widescreen Hacks
+```ini
+_C0 Widescreen Mod
+_L 0xE0010000 0x00345678  ; Address varies per game
+```
+[Full Tutorial](https://forums.ppsspp.org/showthread.php?tid=26189)
+
+### Cheat Code Formulas
+Create custom codes using memory operations:
+```ini
+; 8-bit constant write:
+_L 0x6AAAAAAA 0x00000063
+
+; 16-bit incremental:
+_L 0x2BBBBBBB 0x0000270F
+
+; Float value injection:
+_L 0x4CCCCCCC 0x3F800000
+```
+[Complete Reference](https://gamehacking.org/system/psp/all)
 
 ---
 
@@ -194,10 +222,6 @@ For users who want to customize or create their own cheat databases:
 3. Modify values and test
 4. Document working addresses for future use
 
-> Example screenshot:
-
-![CWCheat Database Editor v2.0](/screenshot/4.png)
-
 ---
 
 ## 🔍 Troubleshooting
@@ -207,9 +231,10 @@ For users who want to customize or create their own cheat databases:
 | Problem | Solution |
 |---------|----------|
 | **"Import from cheat.db" not appearing** | Ensure `cheat.db` is in the correct folder and cheats are enabled |
-| **Cheats not working** | Verify Game ID matches your ROM version (EUR/USA/JPN) |
+| **Cheats not working** | Verify Game ID matches your ROM version (EUR/USA/JPN) exactly |
 | **Game crashes with cheats** | Disable problematic cheats one by one to identify conflicts |
-| **Empty cheat menu** | Check if your game is supported in the database |
+| **Partial cheat activation** | Check for conflicting codes or patches |
+| **Version mismatch** | Different regional releases need specific cheat codes |
 
 ### Game ID Verification
 
@@ -238,11 +263,13 @@ For users who want to customize or create their own cheat databases:
 - **📦 [CWCheat Database Plus+](https://github.com/Saramagrean/CWCheat-Database-Plus-)** - Most comprehensive cheat collection
 - **🔧 [CWCheat Database Editor](https://github.com/DragonNeos/cwcheatdb)** - Database management tool
 - **📋 [PPSSPP Official Site](https://www.ppsspp.org/)** - Latest emulator versions
+- **🎮 [GameHacking PSP Database](https://gamehacking.org/system/psp/all)** - Code formulas & tutorials
+- **⚡ [PPSSPP-patches](https://github.com/TAbdiukov/PPSSPP-patches)** - 60FPS & enhancement codes
 
 ### Community Resources
 
-- **💬 [PPSSPP Forums - Cheats](https://forums.ppsspp.org/showthread.php?tid=3590)** - Community discussions
-- **🔍 [GameFAQs](https://gamefaqs.gamespot.com/)** - Individual game cheat codes
+- **💬 [PPSSPP Cheat Forum](https://forums.ppsspp.org/forumdisplay.php?fid=31)** - Community discussions
+- **🔍 [Advanced Cheat Creation](https://forums.ppsspp.org/showthread.php?tid=22787)** - Technical guides
 - **📖 [PPSSPP Documentation](https://github.com/hrydgard/ppsspp)** - Technical information
 
 ---
@@ -270,7 +297,7 @@ This guide incorporates work and resources from:
 
 - **[Saramagrean](https://github.com/Saramagrean)** - CWCheat Database Plus+ maintenance
 - **[DragonNeos](https://github.com/DragonNeos/cwcheatdb)** - CWCheat Database Editor
-- **[Pasky13](https://tasvideos.org/Users/Profile/Pasky13)** - Original CWCheat Database Editor V2
+- **[TAbdiukov](https://github.com/TAbdiukov/PPSSPP-patches)** - Game patches
 - **PPSSPP Development Team** - Emulator development
 - **PPSSPP Community** - Cheat sharing and support
 
@@ -281,3 +308,4 @@ This guide incorporates work and resources from:
 This guide is provided under the [MIT License](LICENSE.md) for educational purposes.
 
 **Happy Gaming! 🎮✨**
+sA
