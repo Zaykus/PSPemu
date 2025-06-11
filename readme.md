@@ -306,6 +306,3 @@ This guide incorporates work and resources from:
 ## 📄 License
 
 This guide is provided under the [MIT License](LICENSE.md) for educational purposes.
-
-**Happy Gaming! 🎮✨**
-sA
