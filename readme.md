@@ -17,7 +17,7 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 3. [Locating Your Cheats Directory](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-locating-your-cheats-directory)  
 4. [Method 1: Using Cheat Database (Recommended)](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-method-1-using-cheat-database-recommended)  
 5. [Method 2: Manual Cheat Entry](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#%EF%B8%8F-method-2-manual-cheat-entry)  
-6. [Game Patches & Enhancements]([#-game-patches--enhancements](https://github.com/Zaykus/PSPemu/edit/main/readme.md#-game-patches--enhancements))  
+6. [Game Patches & Enhancements](https://github.com/Zaykus/PSPemu/edit/main/readme.md#-game-patches--enhancements)  
 7. [Activating Cheats In-Game](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-activating-cheats-in-game)  
 8. [Advanced Management](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#%EF%B8%8F-advanced-management)  
 9. [Troubleshooting](https://github.com/Zaykus/Cheats-PPSSPP-Emulator?tab=readme-ov-file#-troubleshooting)  
