@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PPSSPP Cheats Database & Guide</title>
-  <meta name="description" content="Professional PPSSPP cheats database with comprehensive installation guides and troubleshooting.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <style>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.ico">
+  <meta name="description" content="An improved, professional PPSSPP cheats database with comprehensive installation guides, troubleshooting, and a searchable, filterable game list.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
     :root {
       /* PSP 3000 inspired theme */
       --primary: #2d4a5c;
@@ -27,7 +31,6 @@
       --error: #e53e3e;
       --code-bg: #f7fafc;
       --info: #4299e1;
-      --icon-size: 24px;
     }
     
     [data-theme="dark"] {
@@ -43,8 +46,8 @@
       --text-secondary: #e2e8f0;
       --text-muted: #a0aec0;
       --border: #4a5568;
-      --shadow: rgba(0, 0, 0, 0.3);
-      --code-bg: #2d3748;
+      --shadow: rgba(0, 0, 0, 0.4);
+      --code-bg: #1e293b;
     }
     
     * { 
@@ -52,19 +55,23 @@
       margin: 0; 
       padding: 0; 
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
     
     /* Header */
@@ -79,12 +86,10 @@
     header::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       opacity: 0.1;
+      z-index: 0;
     }
     
     .header-content {
@@ -94,34 +99,37 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
     }
     
     .logo-icon {
       width: 48px;
       height: 48px;
       background: var(--accent);
-      border-radius: 8px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
+      flex-shrink: 0;
     }
     
     h1 {
-      font-size: 2rem;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
       font-weight: 700;
       margin: 0;
     }
     
     .subtitle {
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
       opacity: 0.9;
       margin-top: 0.25rem;
     }
@@ -129,6 +137,7 @@
     .header-actions {
       display: flex;
       gap: 0.75rem;
+      align-items: center;
       flex-wrap: wrap;
     }
     
@@ -137,11 +146,10 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
       padding: 0.75rem 1.25rem;
-      border-radius: 6px;
+      border-radius: 8px;
       text-decoration: none;
-      font-size: 0.9rem;
       font-weight: 500;
-      transition: all 0.2s ease;
+      transition: all 0.2s ease-in-out;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -150,7 +158,8 @@
     
     .btn:hover {
       background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     
     .btn-primary {
@@ -159,8 +168,14 @@
     }
     
     .btn-primary:hover {
-      background: var(--primary-light);
-      border-color: var(--primary-light);
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .theme-toggle:focus-visible, .btn:focus-visible, .nav-link:focus-visible, .search-input:focus-visible, .filter-select:focus-visible, .page-btn:focus-visible, .status-filter-btn:focus-visible, .copy-btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px rgba(45, 74, 92, 0.2);
     }
     
     /* Navigation */
@@ -169,31 +184,32 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 3px var(--shadow);
+      z-index: 1000;
+      box-shadow: 0 2px 4px var(--shadow);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
     
     .nav-container {
       display: flex;
-      gap: 2rem;
-      padding: 1rem 0;
+      gap: 1rem;
+      padding: 0.5rem 0;
       overflow-x: auto;
+      scrollbar-width: thin;
     }
     
     .nav-link {
       color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 0;
-      border-bottom: 2px solid transparent;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
       transition: all 0.2s ease;
       white-space: nowrap;
     }
     
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-primary);
+      background-color: var(--bg-secondary);
     }
     
     /* Main Content */
@@ -203,18 +219,20 @@
     
     .section {
       margin-bottom: 4rem;
+      scroll-margin-top: 80px; /* Offset for sticky nav */
     }
     
     .section-header {
       margin-bottom: 2rem;
+      text-align: center;
     }
     
     .section-title {
-      font-size: 1.75rem;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 0.5rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.75rem;
     }
@@ -222,47 +240,42 @@
     .section-description {
       color: var(--text-secondary);
       font-size: 1.1rem;
+      max-width: 70ch;
+      margin: 0 auto;
     }
     
-    /* Cards */
+    /* Cards & Grid */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 1px 3px var(--shadow);
-      transition: box-shadow 0.2s ease;
+      box-shadow: 0 2px 5px var(--shadow);
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 2rem;
     }
     
     .card:hover {
-      box-shadow: 0 4px 12px var(--shadow);
+      box-shadow: 0 6px 15px var(--shadow);
+      transform: translateY(-4px);
     }
     
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
     /* Steps */
-    .steps {
-      counter-reset: step;
-    }
-    
+    .steps { counter-reset: step; }
     .step {
       counter-increment: step;
       position: relative;
       padding: 1.5rem;
       padding-left: 4rem;
       margin-bottom: 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--primary);
       border-radius: 8px;
     }
-    
     .step::before {
       content: counter(step);
       position: absolute;
@@ -277,20 +290,14 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: 0.9rem;
     }
-    
-    .step-title {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
+    .step-title { font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
     
     /* Code blocks */
     .code-block {
       background: var(--code-bg);
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 1rem;
       font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
       font-size: 0.875rem;
@@ -299,474 +306,92 @@
       margin: 1rem 0;
       position: relative;
     }
-    
     .copy-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.25rem 0.5rem;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      background: var(--primary); color: white; border: none;
+      padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.8rem;
+      cursor: pointer; opacity: 0.6; transition: all 0.2s;
     }
-    
-    .copy-btn:hover {
-      opacity: 1;
-    }
+    .code-block:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { background: var(--primary-dark); }
     
     /* Tables */
-    .table-container {
-      overflow-x: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      margin: 1rem 0;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--bg-card);
-    }
-    
-    th, td {
-      padding: 0.75rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    th {
-      background: var(--bg-secondary);
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    
-    tbody tr:hover {
-      background: var(--bg-secondary);
-    }
+    .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
+    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--bg-secondary); font-weight: 600; color: var(--text-primary); }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-secondary); }
     
     /* Alerts */
-    .alert {
-      padding: 1rem;
-      border-radius: 6px;
-      margin: 1rem 0;
-      border-left: 4px solid;
-    }
-    
-    .alert-info {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: #3b82f6;
-      color: var(--text-primary);
-    }
-    
-    .alert-warning {
-      background: rgba(245, 158, 11, 0.1);
-      border-color: var(--warning);
-      color: var(--text-primary);
-    }
-    
-    .alert-success {
-      background: rgba(34, 197, 94, 0.1);
-      border-color: var(--success);
-      color: var(--text-primary);
-    }
-    
-    .alert-error {
-      background: rgba(239, 68, 68, 0.1);
-      border-color: var(--error);
-      color: var(--text-primary);
-    }
-    
-    /* Search */
-    .search-container {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-    
-    .search-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      padding-left: 2.5rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--bg-card);
-      color: var(--text-primary);
-      font-size: 1rem;
-      transition: border-color 0.2s;
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(45, 74, 92, 0.1);
-    }
-    
-    .search-icon {
-      position: absolute;
-      left: 0.75rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-    }
-    
+    .alert { padding: 1rem 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid; }
+    .alert-info { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; color: var(--text-primary); }
+    .alert-warning { background: rgba(245, 158, 11, 0.1); border-color: var(--warning); color: var(--text-primary); }
+
     /* Video */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-    }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin: 1.5rem 0; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+    /* Flag/Status Reference */
+    .flag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .flag-card { padding: 1rem; border-radius: 8px; border-left: 4px solid; background: var(--bg-card); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .flag-title { font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .flag-description { font-size: 0.9rem; }
+    .flag-code { font-family: monospace; background: var(--code-bg); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem; margin: 0.5rem 0; display: inline-block; }
+
+    /* Search & Filters */
+    .search-container { position: relative; margin-bottom: 1.5rem; }
+    .search-input { width: 100%; padding: 1rem 1.25rem; padding-left: 3rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); color: var(--text-primary); font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(45, 74, 92, 0.2); }
+    .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
     
-    /* Footer */
-    footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      margin-top: 4rem;
-    }
+    /* Game Database */
+    .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .game-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg-card); transition: all 0.2s ease-in-out; display: flex; flex-direction: column; }
+    .game-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px var(--shadow); border-color: var(--primary); }
+    .game-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); }
+    .game-id { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-family: monospace; }
+    .game-cheats { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1; }
+    .cheat-status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 1rem; font-weight: 500; align-self: flex-start; }
+    .status-icon { font-size: 0.9em; }
+
+    .status-active { background-color: rgba(56, 161, 105, 0.1); color: #2f9155; }
+    [data-theme="dark"] .status-active { color: #48bb78; }
+    .status-inactive { background-color: rgba(214, 158, 46, 0.1); color: #b9811f; }
+    [data-theme="dark"] .status-inactive { color: #f6ad55; }
+    .status-error { background-color: rgba(229, 62, 62, 0.1); color: #c93535; }
+    [data-theme="dark"] .status-error { color: #f56565; }
+    .status-info { background-color: rgba(66, 153, 225, 0.1); color: #3b74b3; }
+    [data-theme="dark"] .status-info { color: #63b3ed; }
     
-    .footer-content {
-      text-align: center;
-      color: var(--text-secondary);
-    }
+    /* Pagination */
+    .pagination { display: flex; gap: 0.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
+    .page-btn { padding: 0.6rem 0.9rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+    .page-btn:hover { background: var(--primary-light); color: white; }
+    .page-btn.active { background: var(--primary); color: white; border-color: var(--primary-dark); }
     
+    /* Stats Bar */
+    .stats-bar { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; margin: 1.5rem 0; font-size: 0.95rem; text-align: center; }
+    .stat-item { display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); }
+    .stat-item i { color: var(--primary); }
+
     /* Theme Toggle */
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: inherit;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
+    .theme-toggle { background: none; border: none; color: white; font-size: 1.25rem; cursor: pointer; padding: 0.5rem; border-radius: 8px; line-height: 1; transition: background-color 0.2s, transform 0.2s; }
+    .theme-toggle:hover { background: rgba(255, 255, 255, 0.15); }
+    .theme-toggle:active { transform: scale(0.9); }
     
-    .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-content {
-        text-align: center;
-      }
-      
-      h1 {
-        font-size: 1.75rem;
-      }
-      
-      .nav-container {
-        padding: 0.75rem 0;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-      }
-      
-      .step {
-        padding-left: 3rem;
-      }
-      
-      .step::before {
-        left: 0.75rem;
-        width: 1.75rem;
-        height: 1.75rem;
-        font-size: 0.8rem;
-      }
-    }
-    
-    /* Status indicators */
-    .status-note {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-    
-    /* Game card styles */
-    .game-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      background: var(--bg-card);
-      transition: transform 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .game-card:hover {
-      transform: translateY(-3px);
-    }
-    
-    .game-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .game-id {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      font-family: monospace;
-    }
-    
-    .game-cheats {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      flex-grow: 1;
-    }
-    
-    /* Game list */
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .cheat-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.9rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      margin-top: 0.5rem;
-    }
-    
-    .status-active {
-      background: rgba(56, 161, 105, 0.1);
-      color: var(--success);
-    }
-    
-    .status-inactive {
-      background: rgba(214, 158, 46, 0.1);
-      color: var(--warning);
-    }
-    
-    .status-error {
-      background: rgba(229, 62, 62, 0.1);
-      color: var(--error);
-    }
-    
-    .status-info {
-      background: rgba(66, 153, 225, 0.1);
-      color: var(--info);
-    }
-    
-    .status-icon {
-      font-size: 0.9em;
-    }
-    
-    /* Flag status section */
-    .flag-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .flag-card {
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 4px solid;
-      background: var(--bg-card);
-    }
-    
-    .flag-title {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .flag-description {
-      font-size: 0.9rem;
-    }
-    
-    .flag-code {
-      font-family: monospace;
-      background: var(--code-bg);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-      display: inline-block;
-    }
-    
-    .flag-example {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-    
-    /* Status key section */
-    .status-key {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    
-    .status-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .status-indicator {
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-    }
-    
-    .status-text {
-      font-size: 0.9rem;
-    }
-    
-    .status-explanation {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: var(--bg-secondary);
-      border-radius: 8px;
-    }
-    
-    /* Icon styles */
-    .icon {
-      width: var(--icon-size);
-      height: var(--icon-size);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .card, .theme-toggle { transition: none; }
+      .btn:hover, .card:hover { transform: none; }
     }
 
-    .database-controls {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    
-    .filter-group {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-    
-    .filter-select {
-      padding: 0.5rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text-primary);
-    }
-    
-    .pagination {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .page-btn {
-      padding: 0.5rem 0.75rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .page-btn:hover {
-      background: var(--primary);
-      color: white;
-    }
-    
-    .page-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-    
-    .stats-bar {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.75rem;
-      background: var(--bg-secondary);
-      border-radius: 6px;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-    
-    .cheat-count {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .status-filter {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .status-filter-btn {
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-    }
-    
-    .status-filter-btn.active {
-      border-color: var(--primary);
-      background: var(--primary);
-      color: white;
-    }
-    
-    .game-card .game-cheat-count {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-    
-    .game-card .game-region {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.25rem;
-    }
-    
+    /* Responsive */
     @media (max-width: 768px) {
-      .database-controls {
-        flex-direction: column;
-      }
-      
-      .filter-group {
-        width: 100%;
-      }
+      .header-content { flex-direction: column; text-align: center; gap: 2rem; }
+      .header-actions { justify-content: center; }
+      .nav-container { padding: 0.75rem 0; }
     }
   </style>
 </head>
@@ -775,22 +400,22 @@
   <header>
     <div class="container">
       <div class="header-content">
-        <div class="logo">
-          <div class="logo-icon">🎮</div>
+        <a href="#" class="logo">
+          <div class="logo-icon" aria-hidden="true">🎮</div>
           <div>
             <h1>PPSSPP Cheats Database</h1>
-            <div class="subtitle">Professional Cheat Management for PSP Emulation</div>
+            <p class="subtitle">Professional Cheat Management for PSP Emulation</p>
           </div>
-        </div>
+        </a>
         <div class="header-actions">
-          <a class="btn" href="https://github.com/hrydgard/ppsspp" target="_blank">
-            <i class="fas fa-mobile-alt"></i> PPSSPP Emulator
+          <a class="btn" href="https://github.com/hrydgard/ppsspp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github" aria-hidden="true"></i> PPSSPP Emulator
           </a>
-          <a class="btn btn-primary" href="https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases" target="_blank">
-            <i class="fas fa-download"></i> Download Cheats
+          <a class="btn btn-primary" href="https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-download" aria-hidden="true"></i> Download DB
           </a>
-          <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
-            <i class="fas fa-moon"></i>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
           </button>
         </div>
       </div>
@@ -800,12 +425,11 @@
   <nav>
     <div class="container">
       <div class="nav-container">
-        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#overview" class="nav-link active">Overview</a>
         <a href="#installation" class="nav-link">Installation</a>
         <a href="#usage" class="nav-link">Usage</a>
-        <a href="#database" class="nav-link active">Database</a>
+        <a href="#database" class="nav-link">Database</a>
         <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
-        <a href="#contribute" class="nav-link">Contribute</a>
       </div>
     </div>
   </nav>
@@ -815,28 +439,26 @@
       <!-- Overview Section -->
       <section id="overview" class="section">
         <div class="section-header">
-          <h2 class="section-title"><i class="fas fa-book"></i> Overview</h2>
+          <h2 class="section-title"><i class="fas fa-book-open" aria-hidden="true"></i> Overview</h2>
           <p class="section-description">
-            Comprehensive cheat database and management system for PPSSPP with thousands of verified cheats.
+            A comprehensive, searchable cheat database and management guide for the PPSSPP emulator, featuring thousands of verified cheats.
           </p>
         </div>
-
         <div class="alert alert-info">
           <strong>Quick Start:</strong> Enable cheats in PPSSPP settings → Download cheat.db → Place in cheats folder → Import in-game
         </div>
-
         <div class="grid grid-3">
           <div class="card">
-            <h3><i class="fas fa-check-circle"></i> CWCheat Support</h3>
-            <p>Full compatibility with CWCheat format for thousands of PSP games with automated import functionality.</p>
+            <h3><i class="fas fa-check-circle" aria-hidden="true"></i> CWCheat Support</h3>
+            <p>Full compatibility with the CWCheat format for thousands of PSP games, including automated import functionality.</p>
           </div>
           <div class="card">
-            <h3><i class="fas fa-tools"></i> Game Fixes</h3>
-            <p>Patches for common issues including freezes, black screens, and compatibility problems.</p>
+            <h3><i class="fas fa-wrench" aria-hidden="true"></i> Game Fixes</h3>
+            <p>Includes patches for common issues like freezes, black screens, and various game-specific compatibility problems.</p>
           </div>
           <div class="card">
-            <h3><i class="fas fa-bolt"></i> Performance Enhancements</h3>
-            <p>60fps patches, widescreen support, and visual improvements for supported titles.</p>
+            <h3><i class="fas fa-bolt" aria-hidden="true"></i> Performance Mods</h3>
+            <p>Enhancements such as 60fps patches, widescreen support, and visual improvements for many popular titles.</p>
           </div>
         </div>
       </section>
@@ -844,444 +466,129 @@
       <!-- Installation Section -->
       <section id="installation" class="section">
         <div class="section-header">
-          <h2 class="section-title"><i class="fas fa-cog"></i> Installation Guide</h2>
+          <h2 class="section-title"><i class="fas fa-cogs"></i> Installation Guide</h2>
           <p class="section-description">Step-by-step instructions for setting up cheats in PPSSPP</p>
         </div>
-
         <div class="card">
           <h3>Step 1: Enable Cheats in PPSSPP</h3>
           <div class="steps">
-            <div class="step">
-              <div class="step-title">Launch PPSSPP</div>
-              <p>Open your PPSSPP emulator application on your device.</p>
-            </div>
-            <div class="step">
-              <div class="step-title">Access Settings</div>
-              <p>Navigate to <strong>Settings → System</strong> from the main menu.</p>
-            </div>
-            <div class="step">
-              <div class="step-title">Enable Cheat Support</div>
-              <p>In the System settings, locate the Cheats section and enable:</p>
-              <ul>
-                <li>☑️ <strong>Enable cheats</strong></li>
-                <li>☑️ <strong>Enable plugins</strong> (recommended for advanced features)</li>
-              </ul>
-            </div>
+            <div class="step"><div class="step-title">Launch PPSSPP</div><p>Open your PPSSPP emulator application on your device.</p></div>
+            <div class="step"><div class="step-title">Access Settings</div><p>Navigate to <strong>Settings → System</strong> from the main menu.</p></div>
+            <div class="step"><div class="step-title">Enable Cheat Support</div><p>In the System settings, locate the Cheats section and check ☑️ <strong>Enable cheats</strong>.</p></div>
           </div>
-          
-          <div class="alert alert-warning">
-            <strong>Important:</strong> Both options must be enabled for cheats to function properly in PPSSPP.
-          </div>
+          <div class="alert alert-warning"><strong>Important:</strong> This option must be enabled for cheats to function properly in PPSSPP.</div>
         </div>
-
         <div class="card">
           <h3>Step 2: Locate Your Cheats Directory</h3>
           <p>The cheats folder location varies by platform. Find your platform below:</p>
-          
           <div class="table-container">
             <table>
-              <thead>
-                <tr>
-                  <th>Platform</th>
-                  <th>Default Cheats Directory</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Platform</th><th>Default Cheats Directory</th></tr></thead>
               <tbody>
-                <tr>
-                  <td><strong>Windows</strong></td>
-                  <td><code>Documents/PPSSPP/PSP/Cheats/</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Android</strong></td>
-                  <td><code>/storage/emulated/0/PSP/Cheats/</code></td>
-                </tr>
-                <tr>
-                  <td><strong>macOS</strong></td>
-                  <td><code>~/Library/Application Support/PPSSPP/PSP/Cheats/</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Linux</strong></td>
-                  <td><code>~/.config/ppsspp/PSP/Cheats/</code></td>
-                </tr>
-                <tr>
-                  <td><strong>iOS (Jailbroken)</strong></td>
-                  <td><code>/var/mobile/Documents/PPSSPP/PSP/Cheats/</code></td>
-                </tr>
+                <tr><td><strong>Windows</strong></td><td><code>Documents/PPSSPP/PSP/Cheats/</code></td></tr>
+                <tr><td><strong>Android</strong></td><td><code>/storage/emulated/0/PSP/Cheats/</code></td></tr>
+                <tr><td><strong>macOS</strong></td><td><code>~/Library/Application Support/PPSSPP/PSP/Cheats/</code></td></tr>
+                <tr><td><strong>Linux</strong></td><td><code>~/.config/ppsspp/PSP/Cheats/</code></td></tr>
+                <tr><td><strong>iOS (Jailbroken)</strong></td><td><code>/var/mobile/Documents/PPSSPP/PSP/Cheats/</code></td></tr>
               </tbody>
             </table>
           </div>
-
-          <div class="alert alert-info">
-            <p><strong>Can't find the cheats folder?</strong></p>
-            <ol>
-              <li>Open PPSSPP and go to <strong>Settings → System</strong></li>
-              <li>Look for <strong>Memory Stick folder</strong> or tap <strong>Show Memory Stick folder</strong></li>
-              <li>Navigate to <code>[Memory Stick Path]/PSP/Cheats/</code></li>
-              <li>If the Cheats folder doesn't exist, create it manually</li>
-            </ol>
-          </div>
+          <div class="alert alert-info"><p><strong>Can't find the cheats folder?</strong></p><ol><li>Open PPSSPP and go to <strong>Settings → System</strong></li><li>Look for <strong>Memory Stick folder</strong> or tap <strong>Show Memory Stick folder</strong></li><li>Navigate to <code>[Memory Stick Path]/PSP/Cheats/</code></li><li>If the Cheats folder doesn't exist, create it manually</li></ol></div>
         </div>
       </section>
-
+      
       <!-- Usage Section -->
       <section id="usage" class="section">
-        <div class="section-header">
-          <h2 class="section-title"><i class="fas fa-gamepad"></i> Usage Instructions</h2>
-          <p class="section-description">How to download, install, and activate cheats</p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Method 1: Database Import (Recommended)</h3>
-            <div class="steps">
-              <div class="step">
-                <div class="step-title">Download cheat.db</div>
-                <p>Get the latest database from trusted sources:</p>
-                <ul>
-                  <li><a href="https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases" target="_blank">Official Repository</a></li>
-                  <li><a href="https://github.com/Saramagrean/CWCheat-Database-Plus-/releases" target="_blank">CWCheat Database Plus+</a></li>
-                </ul>
+          <div class="section-header"><h2 class="section-title"><i class="fas fa-gamepad"></i> Usage Instructions</h2><p class="section-description">How to download, install, and activate cheats</p></div>
+          <div class="grid grid-2">
+              <div class="card">
+                  <h3>Method 1: Database Import (Recommended)</h3>
+                  <div class="steps">
+                      <div class="step"><div class="step-title">Download cheat.db</div><p>Get the latest database from the official <a href="https://github.com/Zaykus/Cheats-PPSSPP-Emulator/releases" target="_blank" rel="noopener noreferrer">Zaykus Cheats Repository</a>.</p></div>
+                      <div class="step"><div class="step-title">Install Database</div><p>Place the downloaded <code>cheat.db</code> file in your PPSSPP cheats directory.</p></div>
+                      <div class="step"><div class="step-title">Import In-Game</div><ul><li>Launch your game in PPSSPP.</li><li>Open the pause menu (ESC key or back button).</li><li>Select <strong>Cheats</strong>, then tap <strong>Import from cheat.db</strong>.</li><li>Enable desired cheats and resume.</li></ul></div>
+                  </div>
               </div>
-              <div class="step">
-                <div class="step-title">Install Database</div>
-                <p>Place the <code>cheat.db</code> file in your PPSSPP cheats directory:</p>
-                <div class="code-block">
-PPSSPP/
-└── PSP/
-    └── Cheats/
-        └── cheat.db
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-title">Import In-Game</div>
-                <ul>
-                  <li>Launch your game in PPSSPP</li>
-                  <li>Open pause menu (ESC key or back button)</li>
-                  <li>Select <strong>Cheats</strong></li>
-                  <li>Tap <strong>Import from cheat.db</strong></li>
-                  <li>Enable desired cheats and resume</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Method 2: Manual Entry</h3>
-            <div class="steps">
-              <div class="step">
-                <div class="step-title">Create Cheat File</div>
-                <p>Launch your game and access the cheats menu to auto-generate the .ini file named after your Game ID.</p>
-              </div>
-              <div class="step">
-                <div class="step-title">Edit INI File</div>
-                <p>Open the generated file in a text editor and add cheats in CWCheat format:</p>
-                <div class="code-block">
-                  <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-_S ULUS-10202
-_G God of War - Chains of Olympus [USA]
+              <div class="card">
+                  <h3>Method 2: Manual Entry</h3>
+                  <div class="steps">
+                      <div class="step"><div class="step-title">Create Cheat File</div><p>Launch a game and access the cheats menu to auto-generate an .ini file named after your Game ID.</p></div>
+                      <div class="step"><div class="step-title">Edit INI File</div><p>Open the generated file in a text editor and add cheats in CWCheat format:</p><div class="code-block"><button class="copy-btn" aria-label="Copy Code">Copy</button><pre><code>_S ULUS-10202
+_G God of War - Chains of Olympus
 _C0 Infinite Health
 _L 0x200xxxxx 0x12345678
-_N Requires health bar to be visible
-_C0 Max Orbs
-_L 0x200xxxxx 0x0098967F
-                </div>
+_N Requires health bar to be visible</code></pre></div></div>
+                      <div class="step"><div class="step-title">Format Reference</div><ul><li><code>_S</code> = Game ID (required)</li><li><code>_G</code> = Game title</li><li><code>_C0/_C1</code> = Cheat state (off/on)</li><li><code>_L</code> = Cheat code line</li><li><code>_N</code> = Cheat note</li></ul></div>
+                  </div>
               </div>
-              <div class="step">
-                <div class="step-title">Format Reference</div>
-                <ul>
-                  <li><code>_S</code> = Game ID identifier (required)</li>
-                  <li><code>_G</code> = Game title (optional)</li>
-                  <li><code>_C0</code> = Cheat description</li>
-                  <li><code>_L</code> = Cheat code (address + value)</li>
-                  <li><code>_N</code> = Cheat note (appears below cheat)</li>
-                </ul>
-              </div>
-            </div>
           </div>
-        </div>
+          <div class="card">
+            <h3>Video Tutorial</h3><div class="video-container"><iframe src="https://www.youtube.com/embed/WPVlhwtNSvk" title="PPSSPP Cheat Installation Tutorial" allowfullscreen></iframe></div>
+          </div>
+      </section>
 
-        <div class="card">
-          <h3>Activating Cheats</h3>
-          <ol>
-            <li>Pause your game (ESC key or pause button)</li>
-            <li>Select <strong>Cheats</strong> from the pause menu</li>
-            <li>Use checkboxes to toggle cheats on/off</li>
-            <li>Resume gameplay to see effects</li>
-          </ol>
-          
-          <div class="status-note">
-            <strong>Note:</strong> PPSSPP doesn't use visual status indicators for cheats. Active cheats are simply checked in the menu, inactive ones are unchecked. If a cheat isn't working, verify the Game ID matches your ROM region.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Video Tutorial</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/WPVlhwtNSvk" title="PPSSPP Cheat Installation Tutorial" allowfullscreen></iframe>
-          </div>
-        </div>
-      </section>      
-      <!-- Enhanced Database Section -->
+      <!-- Database Section -->
       <section id="database" class="section">
         <div class="section-header">
-          <h2 class="section-title"><i class="fas fa-database"></i> Enhanced Cheats Database</h2>
-          <p class="section-description">Complete CWCheat Database Plus+ with over 2,000 games</p>
+          <h2 class="section-title"><i class="fas fa-database" aria-hidden="true"></i> Enhanced Cheats Database</h2>
+          <p class="section-description">Search and filter the complete CWCheat Database Plus+ with over 2,000 games and 42,000+ codes.</p>
         </div>
 
         <div class="card">
           <div class="search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="gameSearch" class="search-input" placeholder="Search 2,000+ games by title or Game ID...">
+            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            <label for="gameSearch" class="visually-hidden">Search Games</label>
+            <input type="search" id="gameSearch" class="search-input" placeholder="Search games by title or Game ID...">
           </div>
           
-          <div class="database-controls">
-            <div class="filter-group">
-              <label for="regionFilter">Region:</label>
-              <select id="regionFilter" class="filter-select">
-                <option value="all">All Regions</option>
-                <option value="ULUS">USA (ULUS)</option>
-                <option value="ULES">Europe (ULES)</option>
-                <option value="ULJM">Japan (ULJM)</option>
-                <option value="UCUS">USA (UCUS)</option>
-                <option value="NP">PSN Digital (NP)</option>
-              </select>
-              
-              <label for="sortFilter">Sort:</label>
-              <select id="sortFilter" class="filter-select">
-                <option value="name">Game Title (A-Z)</option>
-                <option value="id">Game ID</option>
-                <option value="cheats">Cheat Count</option>
-              </select>
-            </div>
-            
-            <div class="status-filter">
-              <div class="status-filter-btn active" data-status="all">All</div>
-              <div class="status-filter-btn" data-status="active">Verified</div>
-              <div class="status-filter-btn" data-status="inactive">Partial</div>
-              <div class="status-filter-btn" data-status="error">Issues</div>
-              <div class="status-filter-btn" data-status="info">Conditions</div>
-            </div>
-          </div>
-          
-          <div class="stats-bar">
-            <div class="cheat-count">
-              <i class="fas fa-database"></i>
-              <span id="gameCount">2,173</span> games with cheats
-            </div>
-            <div class="cheat-count">
-              <i class="fas fa-code"></i>
-              <span id="cheatCount">42,891</span> cheat codes
-            </div>
-            <div class="cheat-count">
-              <i class="fas fa-sync-alt"></i>
-              Updated: 2023-10-15
-            </div>
-          </div>
-
-          <div class="alert alert-info">
-            <p><strong>Database Information:</strong> Complete CWCheat Database Plus+ integrated with 2,173 PSP games. Games are identified by their unique Game ID (e.g., ULUS-10202). Make sure your ROM's Game ID matches the database entry for cheats to work properly.</p>
-            <p><strong>Source:</strong> Game list from <a href="https://github.com/Saramagrean/CWCheat-Database-Plus-" target="_blank">CWCheat Database Plus+</a></p>
+          <div class="stats-bar" role="status" aria-live="polite">
+            <div class="stat-item"><i class="fas fa-gamepad" aria-hidden="true"></i><div><strong id="gameCount">...</strong> games found</div></div>
+             <div class="stat-item"><i class="fas fa-code" aria-hidden="true"></i><div><strong id="cheatCount">...</strong> total cheats</div></div>
           </div>
 
           <div class="games-grid" id="gamesList">
             <!-- Game cards will be populated by JavaScript -->
           </div>
           
-          <div class="pagination" id="pagination">
+          <div class="pagination" id="pagination" aria-label="Game list pagination">
             <!-- Pagination will be generated by JavaScript -->
-          </div>
-          
-          <div class="alert alert-warning">
-            <strong>Game ID Patterns:</strong>
-            <ul>
-              <li><code>ULUS</code> = USA releases</li>
-              <li><code>ULES</code> = European releases</li>
-              <li><code>ULJM</code> = Japanese releases</li>
-              <li><code>UCUS</code> = USA (alternative format)</li>
-              <li><code>NPEG/NPUG/NPJG</code> = PSN digital releases</li>
-            </ul>
-          </div>
-          
-          <!-- Enhanced Cheat Status Section -->
-          <h3><i class="fas fa-info-circle"></i> Understanding Cheat Status Indicators</h3>
-          
-          <div class="status-key">
-            <div class="status-item">
-              <div class="status-indicator" style="background-color: var(--success)"></div>
-              <div class="status-text">Verified & Working</div>
-            </div>
-            <div class="status-item">
-              <div class="status-indicator" style="background-color: var(--warning)"></div>
-              <div class="status-text">Partially Working</div>
-            </div>
-            <div class="status-item">
-              <div class="status-indicator" style="background-color: var(--error)"></div>
-              <div class="status-text">Not Working / Issues</div>
-            </div>
-            <div class="status-item">
-              <div class="status-indicator" style="background-color: var(--info)"></div>
-              <div class="status-text">Requires Specific Conditions</div>
-            </div>
-          </div>
-          
-          <div class="status-explanation">
-            <p><strong>Cheat status is determined by:</strong></p>
-            <ul>
-              <li>Community testing reports</li>
-              <li>Compatibility with latest PPSSPP versions</li>
-              <li>Game region matching</li>
-              <li>Presence of special requirements (indicated by _N flag)</li>
-              <li>Known conflicts with other cheats</li>
-            </ul>
-          </div>
-          
-          <!-- Enhanced Cheat Flag Information -->
-          <h3><i class="fas fa-flag"></i> Cheat Flag Reference</h3>
-          <p>Cheats are defined using special flags in the .ini files. Understanding these flags helps in troubleshooting and creating custom cheats.</p>
-          
-          <div class="flag-grid">
-            <div class="flag-card" style="border-left-color: var(--primary)">
-              <div class="flag-title"><i class="fas fa-hashtag"></i> _S Flag</div>
-              <div class="flag-code">_S [Game ID]</div>
-              <div class="flag-description">
-                <p>Mandatory flag that specifies the game's unique identifier. Must match the ROM's Game ID exactly.</p>
-                <p class="flag-example">Example: <code>_S ULUS-10512</code></p>
-              </div>
-            </div>
-            
-            <div class="flag-card" style="border-left-color: var(--info)">
-              <div class="flag-title"><i class="fas fa-font"></i> _G Flag</div>
-              <div class="flag-code">_G [Game Title]</div>
-              <div class="flag-description">
-                <p>Optional flag that specifies the game title. Appears in the cheat menu for easier identification.</p>
-                <p class="flag-example">Example: <code>_G Persona 3 Portable [USA]</code></p>
-              </div>
-            </div>
-            
-            <div class="flag-card" style="border-left-color: var(--success)">
-              <div class="flag-title"><i class="fas fa-heading"></i> _C0 Flag</div>
-              <div class="flag-code">_C0 [Cheat Description]</div>
-              <div class="flag-description">
-                <p>Defines the cheat title that appears in the cheat menu. Each cheat starts with this flag.</p>
-                <p class="flag-example">Example: <code>_C0 Infinite Health</code></p>
-              </div>
-            </div>
-            
-            <div class="flag-card" style="border-left-color: var(--warning)">
-              <div class="flag-title"><i class="fas fa-code"></i> _L Flag</div>
-              <div class="flag-code">_L [Address] [Value]</div>
-              <div class="flag-description">
-                <p>Defines the actual cheat code. Multiple _L lines may be required for complex cheats.</p>
-                <p class="flag-example">Example: <code>_L 0x20012345 0x00000064</code></p>
-              </div>
-            </div>
-            
-            <div class="flag-card" style="border-left-color: var(--info)">
-              <div class="flag-title"><i class="fas fa-sticky-note"></i> _N Flag</div>
-              <div class="flag-code">_N [Note]</div>
-              <div class="flag-description">
-                <p>Provides additional information about the cheat. Appears below the cheat in the menu.</p>
-                <p class="flag-example">Example: <code>_N Requires health bar to be visible</code></p>
-              </div>
-            </div>
-            
-            <div class="flag-card" style="border-left-color: var(--error)">
-              <div class="flag-title"><i class="fas fa-ban"></i> _M Flag</div>
-              <div class="flag-code">_M [Master Code]</div>
-              <div class="flag-description">
-                <p>Not used by PPSSPP. Should be removed from cheat files as it may cause conflicts.</p>
-                <p class="flag-example">Example: <code>_M C0DEBA5E 0xDEADBEEF</code></p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="alert alert-info">
-            <p><strong>Cheat File Structure:</strong></p>
-            <div class="code-block">
-_S ULUS-10512
-_G Persona 3 Portable [USA]
-
-_C0 Max Money
-_L 0x203A9F40 0x0098967F
-_N Requires being in Tartarus
-
-_C0 All Social Stats Max
-_L 0x203A9F44 0x03E703E7
-_L 0x203A9F48 0x03E703E7
-            </div>
-          </div>
-        </div>
-      </section>
-
-       <!-- Troubleshooting Section -->
-      <section id="troubleshooting" class="section">
-        <div class="section-header">
-          <h2 class="section-title"><i class="fas fa-tools"></i> Troubleshooting</h2>
-          <p class="section-description">Common issues and solutions</p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Common Issues</h3>
-            <div class="alert alert-error">
-              <strong>Cheats not showing up</strong>
-              <ul>
-                <li>Verify the Game ID matches between your ROM and the cheat file</li>
-                <li>Ensure the cheat file is in the correct directory</li>
-                <li>Restart PPSSPP after adding new cheat files</li>
-              </ul>
-            </div>
-            
-            <div class="alert alert-warning">
-              <strong>Cheats not working</strong>
-              <ul>
-                <li>Make sure "Enable cheats" is checked in PPSSPP settings</li>
-                <li>Try disabling other cheats that might conflict</li>
-                <li>Some cheats require specific conditions to activate (check _N flags)</li>
-                <li>Ensure your ROM region matches the cheat region</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Advanced Solutions</h3>
-            <div class="alert alert-info">
-              <strong>Game freezes when cheats are enabled</strong>
-              <ul>
-                <li>Update to the latest PPSSPP version</li>
-                <li>Try disabling all cheats except the one you need</li>
-                <li>Some cheats may be incompatible with your ROM version</li>
-                <li>Check for cheat conflicts - multiple cheats modifying same memory address</li>
-              </ul>
-            </div>
-            
-            <div class="alert alert-success">
-              <strong>Creating custom cheats</strong>
-              <ul>
-                <li>Use CWCheat Database Editor for cheat creation</li>
-                <li>Test cheats in small segments before combining</li>
-                <li>Always backup your save files before testing new cheats</li>
-                <li>Reference the _N flag for special instructions</li>
-              </ul>
-            </div>
           </div>
         </div>
         
         <div class="card">
-          <h3>Cheat Status Indicators</h3>
-          <div class="grid grid-4">
-            <div class="cheat-status status-active">✅ Verified & Working</div>
-            <p>Cheats are fully functional with the latest PPSSPP version</p>
-            
-            <div class="cheat-status status-inactive">⚠️ Partially Working</div>
-            <p>Some cheats work but others may cause issues</p>
-            
-            <div class="cheat-status status-error">❌ Major Issues</div>
-            <p>Cheats may cause crashes or game instability</p>
-            
-            <div class="cheat-status status-info">ℹ️ Requires Conditions</div>
-            <p>Cheat only works under specific circumstances</p>
-          </div>
+            <h3><i class="fas fa-flag"></i> Cheat Flag Reference</h3>
+            <p>Cheats are defined using special flags. Understanding these helps in troubleshooting and creating custom cheats.</p>
+            <div class="flag-grid">
+                <div class="flag-card" style="border-left-color: var(--primary)"><div class="flag-title"><i class="fas fa-hashtag"></i> _S Flag</div><div class="flag-code">_S [Game ID]</div><div class="flag-description"><p>Mandatory. Specifies the game's unique identifier.</p></div></div>
+                <div class="flag-card" style="border-left-color: var(--info)"><div class="flag-title"><i class="fas fa-font"></i> _G Flag</div><div class="flag-code">_G [Game Title]</div><div class="flag-description"><p>Optional. Specifies the game title for easier identification.</p></div></div>
+                <div class="flag-card" style="border-left-color: var(--error)"><div class="flag-title"><i class="fas fa-toggle-off"></i> _C0 Flag</div><div class="flag-code">_C0 [Cheat Description]</div><div class="flag-description"><p>Defines the cheat title. The '0' means the cheat is **disabled** by default.</p></div></div>
+                <div class="flag-card" style="border-left-color: var(--success)"><div class="flag-title"><i class="fas fa-toggle-on"></i> _C1 Flag</div><div class="flag-code">_C1 [Cheat Description]</div><div class="flag-description"><p>Defines the cheat title. The '1' means the cheat is **enabled** by default.</p></div></div>
+                <div class="flag-card" style="border-left-color: var(--warning)"><div class="flag-title"><i class="fas fa-code"></i> _L Flag</div><div class="flag-code">_L [Address] [Value]</div><div class="flag-description"><p>Defines the actual cheat code line. A cheat can have multiple _L lines.</p></div></div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Troubleshooting Section -->
+      <section id="troubleshooting" class="section">
+        <div class="section-header"><h2 class="section-title"><i class="fas fa-tools"></i> Troubleshooting</h2><p class="section-description">Solutions for common issues and their causes.</p></div>
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Cheats Not Working / Showing Up</h3>
+                <ul>
+                    <li><strong>Verify Game ID & Region:</strong> Ensure your game's ID (e.g., ULUS-10111) and region (USA, EUR, JPN) match the cheat file.</li>
+                    <li><strong>Correct Directory:</strong> Double-check that the <code>cheat.db</code> or <code>.ini</code> file is in the correct <code>/PSP/Cheats/</code> folder.</li>
+                    <li><strong>Enable Cheats:</strong> Confirm "Enable Cheats" is checked in <code>Settings → System</code>.</li>
+                    <li><strong>Restart PPSSPP:</strong> Restart the emulator after adding or changing cheat files.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Game Freezes or Crashes</h3>
+                <ul>
+                    <li><strong>Update PPSSPP:</strong> Use the latest version of the emulator for best compatibility.</li>
+                    <li><strong>Cheat Conflicts:</strong> Disable all cheats and enable them one-by-one to find a conflicting code.</li>
+                    <li><strong>ROM Version:</strong> Some cheats are version-specific and may not work with a different dump of the same game.</li>
+                </ul>
+            </div>
         </div>
       </section>
     </div>
@@ -1289,42 +596,41 @@ _L 0x203A9F48 0x03E703E7
 
   <footer>
     <div class="container">
-      <div class="footer-content">
-        <p>PPSSPP Cheats Database &copy; 2023 | Professional cheat management for PSP emulation</p>
-        <p>This project is not affiliated with or endorsed by PPSSPP developers.</p>
-      </div>
+      <p style="text-align:center; color: var(--text-muted); font-size: 0.9rem; padding: 2rem 0;">
+        PPSSPP Cheats Database &copy; 2025. This project is not affiliated with the official PPSSPP team.
+      </p>
     </div>
   </footer>
 
-  <script>
-    // Theme toggle functionality
-    function toggleTheme() {
-      const currentTheme = document.body.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.body.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update theme toggle icon
-      const themeToggle = document.querySelector('.theme-toggle');
-      const icon = themeToggle.querySelector('i');
-      icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.body.setAttribute('data-theme', savedTheme);
-      
-      // Set correct icon on page load
-      const themeToggle = document.querySelector('.theme-toggle');
-      const icon = themeToggle.querySelector('i');
-      icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-    
-    // Game database implementation
-    const games = [
-// Game database implementation
-const games = [
+  <script defer>
+    const App = {
+      state: { games: [], filteredGames: [], currentPage: 1, gamesPerPage: 24, },
+      elements: {
+        themeToggle: document.getElementById('theme-toggle'),
+        navLinks: document.querySelectorAll('.nav-link'),
+        sections: document.querySelectorAll('.section'),
+        gamesList: document.getElementById('gamesList'),
+        pagination: document.getElementById('pagination'),
+        gameSearch: document.getElementById('gameSearch'),
+        gameCount: document.getElementById('gameCount'),
+        cheatCount: document.getElementById('cheatCount'),
+        databaseSection: document.getElementById('database'),
+      },
+      init() {
+        this.loadGameData();
+        this.setupEventListeners();
+        this.applyInitialTheme();
+        this.setupIntersectionObserver();
+        this.update();
+      },
+      loadGameData() {
+        // ###############################################################
+        // ### PASTE YOUR FULL GAME LIST ARRAY HERE                    ###
+        // ### Replace the empty array `[]` below with your data.      ###
+        // ### OR use the provided gamesData array below. Ha :o        ###
+        // ###############################################################
+        const gamesData = [
+
   { title: ".CWC Search Fix [Notepad++]", id: ".All", region: "UNK", cheats: "Various cheats available", cheatCount: 5, status: "active" },
   { title: ".Hack//Link [JP]", id: "ULJS-00266", region: "JPN", cheats: "All Items", cheatCount: 830, status: "active" },
   { title: "0-ji No Kane to Cinderella: Halloween Wedding [JP]", id: "ULJM-06272", region: "JPN", cheats: "Various cheats available", cheatCount: 4, status: "active" },
@@ -3981,248 +3287,143 @@ const games = [
   { title: "Zombie Tycoon [EU]", id: "NPEZ-00029", region: "UNK", cheats: "Infinite Health", cheatCount: 6, status: "active" },
   { title: "Zuma (PSN) (Minis) [EU]", id: "NPEG-00037", region: "UNK", cheats: "Various cheats available", cheatCount: 3, status: "active" },
   { title: "Zwei!! [JP]", id: "ULJM-05392", region: "JPN", cheats: "Infinite Health, Max Money", cheatCount: 22, status: "active" }
-];
-    
-    // Pagination variables
-    const gamesPerPage = 20;
-    let currentPage = 1;
-    let filteredGames = [...games];
-    
-    // Initialize the database
-    function initDatabase() {
-      renderGameCards();
-      setupPagination();
-      setupFilters();
-      updateStats();
-    }
-    
-    // Render game cards for current page
-    function renderGameCards() {
-      const gamesList = document.getElementById('gamesList');
-      gamesList.innerHTML = '';
-      
-      const startIndex = (currentPage - 1) * gamesPerPage;
-      const endIndex = startIndex + gamesPerPage;
-      const gamesToShow = filteredGames.slice(startIndex, endIndex);
-      
-      if (gamesToShow.length === 0) {
-        gamesList.innerHTML = '<div class="alert alert-info">No games found matching your search criteria.</div>';
-        return;
-      }
-      
-      gamesToShow.forEach(game => {
-        const gameCard = document.createElement('div');
-        gameCard.className = 'game-card';
-        
-        let statusClass = 'status-active';
-        let statusIcon = 'fas fa-check-circle';
-        let statusText = 'Cheats verified';
-        
-        if (game.status === 'inactive') {
-          statusClass = 'status-inactive';
-          statusIcon = 'fas fa-exclamation-triangle';
-          statusText = 'Partially working';
-        } else if (game.status === 'error') {
-          statusClass = 'status-error';
-          statusIcon = 'fas fa-times-circle';
-          statusText = 'Some cheats incompatible';
-        } else if (game.status === 'info') {
-          statusClass = 'status-info';
-          statusIcon = 'fas fa-info-circle';
-          statusText = 'Requires conditions';
-        }
-        
-        gameCard.innerHTML = `
-          <div class="game-title">${game.title}</div>
-          <div class="game-id">${game.id}</div>
-          <div class="game-region">Region: ${game.region}</div>
-          <div class="game-cheat-count">${game.cheatCount} cheat codes available</div>
-          <div class="game-cheats">${game.cheats}</div>
-          <div class="cheat-status ${statusClass}"><i class="${statusIcon} status-icon"></i> ${statusText}</div>
-        `;
-        
-        gamesList.appendChild(gameCard);
-      });
-    }
-    
-    // Setup pagination controls
-    function setupPagination() {
-      const pagination = document.getElementById('pagination');
-      pagination.innerHTML = '';
-      
-      const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
-      
-      if (totalPages <= 1) return;
-      
-      // Previous button
-      const prevButton = document.createElement('div');
-      prevButton.className = 'page-btn';
-      prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-      prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          renderGameCards();
-          setupPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-      pagination.appendChild(prevButton);
-      
-      // Page buttons
-      for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('div');
-        pageButton.className = 'page-btn';
-        if (i === currentPage) pageButton.classList.add('active');
-        pageButton.textContent = i;
-        pageButton.addEventListener('click', () => {
-          currentPage = i;
-          renderGameCards();
-          setupPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        ];
+        // ###############################################################
+        // ### END OF DATA INSERTION AREA    Fuck java :/              ###
+        // ###############################################################
+        this.state.games = gamesData;
+        this.state.filteredGames = [...gamesData];
+      },
+      setupEventListeners() {
+        this.elements.themeToggle.addEventListener('click', () => this.toggleTheme());
+        this.elements.gameSearch.addEventListener('input', () => this.filterGames());
+        this.elements.pagination.addEventListener('click', (e) => this.handlePaginationClick(e));
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.copy-btn')) { this.copyCode(e.target.closest('.copy-btn')); }
         });
-        pagination.appendChild(pageButton);
-      }
-      
-      // Next button
-      const nextButton = document.createElement('div');
-      nextButton.className = 'page-btn';
-      nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-      nextButton.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          renderGameCards();
-          setupPagination();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      update() { this.filterGames(); },
+      filterGames() {
+        const searchTerm = this.elements.gameSearch.value.toLowerCase();
+        this.state.filteredGames = this.state.games.filter(game => 
+          game.title.toLowerCase().includes(searchTerm) || 
+          game.id.toLowerCase().includes(searchTerm)
+        );
+        this.state.currentPage = 1;
+        this.render();
+      },
+      render() {
+        this.renderGameCards();
+        this.renderPagination();
+        this.updateStats();
+      },
+      applyInitialTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+        this.updateThemeIcon(savedTheme);
+      },
+      toggleTheme() {
+        const newTheme = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        this.updateThemeIcon(newTheme);
+      },
+      updateThemeIcon(theme) {
+          const icon = this.elements.themeToggle.querySelector('i');
+          icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+      },
+      renderGameCards() {
+        const { currentPage, gamesPerPage, filteredGames } = this.state;
+        this.elements.gamesList.innerHTML = '';
+        const startIndex = (currentPage - 1) * gamesPerPage;
+        const gamesToShow = filteredGames.slice(startIndex, startIndex + gamesPerPage);
+        if (gamesToShow.length === 0) {
+          this.elements.gamesList.innerHTML = '<p style="text-align:center; color: var(--text-muted); padding: 2rem;">No games found. Try adjusting your search.</p>';
+          return;
         }
-      });
-      pagination.appendChild(nextButton);
-    }
-    
-    // Setup filters and search
-    function setupFilters() {
-      const gameSearch = document.getElementById('gameSearch');
-      const regionFilter = document.getElementById('regionFilter');
-      const sortFilter = document.getElementById('sortFilter');
-      const statusFilterButtons = document.querySelectorAll('.status-filter-btn');
-      
-      // Search functionality
-      gameSearch.addEventListener('input', () => {
-        filterGames();
-      });
-      
-      // Region filter
-      regionFilter.addEventListener('change', () => {
-        filterGames();
-      });
-      
-      // Sort filter
-      sortFilter.addEventListener('change', () => {
-        sortGames();
-        currentPage = 1;
-        renderGameCards();
-        setupPagination();
-      });
-      
-      // Status filter
-      statusFilterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          statusFilterButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          filterGames();
+        const fragment = document.createDocumentFragment();
+        gamesToShow.forEach(game => {
+          const gameCard = document.createElement('div');
+          gameCard.className = 'game-card';
+          const statusDetails = {
+            active: { class: 'status-active', icon: 'fa-check-circle', text: 'Verified' },
+            inactive: { class: 'status-inactive', icon: 'fa-exclamation-triangle', text: 'Partial' },
+            error: { class: 'status-error', icon: 'fa-times-circle', text: 'Issues' },
+            info: { class: 'status-info', icon: 'fa-info-circle', text: 'Conditional' },
+          };
+          const status = statusDetails[game.status] || statusDetails.active;
+          gameCard.innerHTML = `<div class="game-title">${game.title}</div><div class="game-id">${game.id}</div><div class="game-cheats">${game.cheatCount} cheats available: ${game.cheats}</div><div class="cheat-status ${status.class}"><i class="fas ${status.icon} status-icon" aria-hidden="true"></i> ${status.text}</div>`;
+          fragment.appendChild(gameCard);
         });
-      });
-    }
-    
-    // Filter games based on search, region, and status
-    function filterGames() {
-      const searchTerm = document.getElementById('gameSearch').value.toLowerCase();
-      const region = document.getElementById('regionFilter').value;
-      const activeStatus = document.querySelector('.status-filter-btn.active').dataset.status;
-      
-      filteredGames = games.filter(game => {
-        // Search filter
-        const matchesSearch = game.title.toLowerCase().includes(searchTerm) || 
-                             game.id.toLowerCase().includes(searchTerm);
-        
-        // Region filter
-        const matchesRegion = region === 'all' || 
-                             (region === 'NP' ? game.id.startsWith('NP') : game.id.startsWith(region));
-        
-        // Status filter
-        const matchesStatus = activeStatus === 'all' || game.status === activeStatus;
-        
-        return matchesSearch && matchesRegion && matchesStatus;
-      });
-      
-      sortGames();
-      currentPage = 1;
-      renderGameCards();
-      setupPagination();
-      updateStats();
-    }
-    
-    // Sort games based on selected criteria
-    function sortGames() {
-      const sortBy = document.getElementById('sortFilter').value;
-      
-      filteredGames.sort((a, b) => {
-        if (sortBy === 'name') {
-          return a.title.localeCompare(b.title);
-        } else if (sortBy === 'id') {
-          return a.id.localeCompare(b.id);
-        } else if (sortBy === 'cheats') {
-          return b.cheatCount - a.cheatCount;
+        this.elements.gamesList.appendChild(fragment);
+      },
+      renderPagination() {
+        this.elements.pagination.innerHTML = '';
+        const totalPages = Math.ceil(this.state.filteredGames.length / this.state.gamesPerPage);
+        if (totalPages <= 1) return;
+        const createBtn = (page, text, isDisabled = false, isActive = false) => {
+            const button = document.createElement('button');
+            button.className = `page-btn${isActive ? ' active' : ''}`;
+            button.innerHTML = text;
+            button.dataset.page = page;
+            button.disabled = isDisabled;
+            return button;
+        };
+        this.elements.pagination.appendChild(createBtn(this.state.currentPage - 1, '<i class="fas fa-chevron-left"></i>', this.state.currentPage === 1));
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === this.state.currentPage || i === 1 || i === totalPages || Math.abs(i - this.state.currentPage) <= 1) {
+                this.elements.pagination.appendChild(createBtn(i, i, false, i === this.state.currentPage));
+            } else if (Math.abs(i - this.state.currentPage) === 2) {
+                this.elements.pagination.appendChild(createBtn(i, '...', true));
+            }
         }
-        return 0;
-      });
-    }
-    
-    // Update stats display
-    function updateStats() {
-      document.getElementById('gameCount').textContent = filteredGames.length;
-      
-      // Calculate total cheat count for filtered games
-      const totalCheats = filteredGames.reduce((sum, game) => sum + game.cheatCount, 0);
-      document.getElementById('cheatCount').textContent = totalCheats.toLocaleString();
-    }
-    
-    // Copy code functionality
-    function copyCode(button) {
-      const codeBlock = button.parentElement;
-      const text = codeBlock.innerText.replace('Copy', ''); // Remove button text
-      navigator.clipboard.writeText(text.trim()).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => button.textContent = 'Copy', 2000);
-      });
-    }
-    
-    // Set active nav link based on scroll position
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('.section');
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      let currentSection = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 100)) {
-          currentSection = section.getAttribute('id');
+        this.elements.pagination.appendChild(createBtn(this.state.currentPage + 1, '<i class="fas fa-chevron-right"></i>', this.state.currentPage === totalPages));
+      },
+      handlePaginationClick(e) {
+        const button = e.target.closest('.page-btn');
+        if (!button || button.disabled) return;
+        const page = parseInt(button.dataset.page, 10);
+        if (page !== this.state.currentPage) {
+            this.state.currentPage = page;
+            this.renderGameCards();
+            this.renderPagination();
+            this.elements.databaseSection.scrollIntoView();
         }
-      });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-    
-    // Initialize when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-      initDatabase();
-    });
+      },
+      updateStats() {
+        this.elements.gameCount.textContent = this.state.filteredGames.length.toLocaleString();
+        const totalCheats = this.state.filteredGames.reduce((sum, game) => sum + game.cheatCount, 0);
+        this.elements.cheatCount.textContent = totalCheats.toLocaleString();
+      },
+      copyCode(button) {
+        const codeBlock = button.closest('.code-block');
+        const code = codeBlock.querySelector('code, pre') || codeBlock;
+        const textToCopy = code.innerText.replace(/copy/i, '').trim();
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        textArea.style.position = 'fixed'; textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try { document.execCommand('copy'); button.textContent = 'Copied!'; }
+        catch (err) { console.error('Failed to copy: ', err); button.textContent = 'Error'; }
+        document.body.removeChild(textArea);
+        setTimeout(() => { button.innerHTML = 'Copy'; }, 2000);
+      },
+      setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              this.elements.navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+              });
+            }
+          });
+        }, { root: null, rootMargin: '0px', threshold: 0.4, });
+        this.elements.sections.forEach(section => observer.observe(section));
+      }
+    };
+    document.addEventListener('DOMContentLoaded', () => App.init());
   </script>
 </body>
 </html>
