@@ -26,7 +26,7 @@ CWCheat Converter is a Python utility that transforms CWCheat database files (us
 
 ## ✨ Features
 
-- 🔄 **Automatic Conversion** - Converts entire CWCheat databases (800+ games)
+- 🔄 **Automatic Conversion** - Converts entire CWCheat databases (2600+++ games)
 - 🌍 **Region Detection** - Auto-detects game regions from ID prefixes
 - 🎮 **Smart Descriptions** - Generates intelligent cheat descriptions
 - 📊 **Complete Data** - Extracts titles, IDs, cheat counts, and metadata
@@ -261,13 +261,13 @@ After conversion, you'll see detailed statistics:
 
 ```
 Processing CWCheat database: cheat.db
-Found 847 games in database
-Successfully converted 847 games to games_database.js
+Found 2656 games in database
+Successfully converted 2656 games to psp_games.js
 
 Conversion Summary:
-- Total games processed: 847
-- Output file: games_database.js
-- Regions found: {'USA', 'EUR', 'JPN', 'ASA'}
+- Total games processed: 2656
+- Output file: psp_games.js
+- Regions found: {'UNK', 'USA', 'JPN', 'EUR', 'ASA'}
 ```
 
 ## 🔗 Related Projects
