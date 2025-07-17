@@ -2,14 +2,14 @@
 
 A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP PlayStation Portable emulator using cheat databases and manual methods.
 
----
 
 ## 🚀 Quick Start
 
-**TL;DR:** Enable cheats in PPSSPP settings, download a `cheat.db` file, place it in your cheats folder, then import cheats directly from the in-game menu.
+**TL;DR:** Enable cheats in PPSSPP settings, download a `cheat.db` file, place it in your cheats folder, then import cheats directly from the in-game menu.\
+- [Website](https://zaykus.github.io/PSPemu)
 
 ---
-5sda
+
 ## 📋 Table of Contents  
 
 -  [Prerequisites](#-prerequisites)
@@ -36,7 +36,7 @@ A comprehensive guide to enable, install, and manage cheat codes in the PPSSPP P
 
 ## ⚙️ Enabling Cheats
 
-**Step 1:** Configure PPSSPP Settings
+### Configure PPSSPP Settings
 
 1. Launch **PPSSPP**
 2. Navigate to `Settings` → `System`
